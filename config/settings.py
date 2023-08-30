@@ -136,5 +136,6 @@ REST_FRAMEWORK = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://uicgroup.up.railway.app"
+    "https://uicgroup.up.railway.app",
+    "https://*.railway.app",
 ]
