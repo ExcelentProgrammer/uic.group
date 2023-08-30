@@ -123,7 +123,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "accounts.User"
 
-CORS_ALLOWED_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -133,3 +133,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://uicgroup.up.railway.app/"
+]

@@ -12,7 +12,7 @@ class Student(models.Model):
     )
 
     full_name = models.CharField(max_length=255)
-    type = models.IntegerField(max_length=255, choices=TYPE)
+    type = models.IntegerField(choices=TYPE)
     phone = models.CharField(max_length=255)
     institute = models.ForeignKey(Institute, on_delete=models.CASCADE)
     contract = models.BigIntegerField()
