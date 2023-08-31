@@ -27,6 +27,7 @@ class StudentListApi(ListAPIView):
     filterset_fields = ["get_status_display"]
 
 
+
 class StudentUpdateApi(UpdateAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentCreateSerializer

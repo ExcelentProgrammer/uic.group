@@ -12,10 +12,10 @@ class Student(models.Model):
     )
 
     STATUS = (
-        ("Yangi", "Yangi"),
-        ("Modernarsiyada", "Modernarsiyada"),
-        ("Tasdiqlangan", "Tasdiqlangan"),
-        ("Bekor qilingan", "Bekor qilingan"),
+        (1, "Yangi"),
+        (2, "Modernarsiyada"),
+        (3, "Tasdiqlangan"),
+        (4, "Bekor qilingan"),
     )
 
     full_name = models.CharField(max_length=255)
@@ -24,7 +24,7 @@ class Student(models.Model):
     institute = models.ForeignKey(Institute, on_delete=models.CASCADE)
     contract = models.BigIntegerField()
     given = models.BigIntegerField()
-    get_status_display = models.CharField(max_length=255, blank=True, null=True, default="Yangi",choices=STATUS)
+    get_status_display = models.IntegerField(blank=True, null=True, default=STATUS[0], choices=STATUS)
 
     def __str__(self):
         return self.full_name
