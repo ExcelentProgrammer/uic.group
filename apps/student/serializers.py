@@ -30,7 +30,9 @@ class StudentCreateSerializer(serializers.ModelSerializer):
 
 class StudentSerializer(serializers.ModelSerializer):
     institute = InstituteSerializer()
+    type = serializers.SerializerMethodField()
 
+    
     class Meta:
         model = Student
         read_only_fields = ['get_status_display']
@@ -44,6 +46,9 @@ class StudentSerializer(serializers.ModelSerializer):
             "given",
             "get_status_display",
         ]
+
+    def get_type(self,obj):
+        return obj.get_type_display()
 
 
 class StudentSponsorSerializer(serializers.ModelSerializer):
