@@ -10,3 +10,4 @@ class InstituteListApi(ListAPIView):
     model = Institute
     serializer_class = InstituteSerializer
     queryset = Institute.objects.all()
+    filterset_fields = ["name"]

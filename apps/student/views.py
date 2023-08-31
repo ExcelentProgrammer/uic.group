@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import CreateAPIView, DestroyAPIView, ListAPIView, UpdateAPIView, RetrieveAPIView
 
 from apps.student.models import Student
@@ -23,6 +24,7 @@ class StudentDetailApi(RetrieveAPIView):
 class StudentListApi(ListAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+    filterset_fields = ["get_status_display"]
 
 
 class StudentUpdateApi(UpdateAPIView):

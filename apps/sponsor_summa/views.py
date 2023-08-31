@@ -19,6 +19,7 @@ class SponsorSummaDeleteApi(DestroyAPIView):
 class SponsorSummaListApi(ListAPIView):
     queryset = SponsorSumma.objects.all()
     serializer_class = SponsorSummaSerializer
+    filterset_fields = ["sponsor"]
 
 
 class SponsorSummaUpdateApi(UpdateAPIView):

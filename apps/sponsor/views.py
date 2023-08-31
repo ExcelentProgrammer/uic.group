@@ -1,3 +1,4 @@
+from rest_framework.filters import OrderingFilter
 from rest_framework.generics import CreateAPIView, DestroyAPIView, RetrieveAPIView, ListAPIView, UpdateAPIView
 
 from apps.sponsor.models import Sponsor, SponsorTariff
@@ -25,6 +26,8 @@ class SponsorDetailApi(RetrieveAPIView):
 class SponsorListApi(ListAPIView):
     queryset = Sponsor.objects.all()
     serializer_class = SponsorListSerializer
+    filter_backends = [OrderingFilter]
+    ordering_fields = "__all__"
 
 
 class SponsorUpdateApi(UpdateAPIView):
