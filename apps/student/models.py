@@ -22,8 +22,8 @@ class Student(models.Model):
     type = models.IntegerField(choices=TYPE)
     phone = models.CharField(max_length=255)
     institute = models.ForeignKey(Institute, on_delete=models.CASCADE)
-    contract = models.BigIntegerField()
-    given = models.BigIntegerField()
+    contract = models.BigIntegerField(null=True,blank=True)
+    given = models.BigIntegerField(null=True,blank=True)
     get_status_display = models.IntegerField(blank=True, null=True, default=STATUS[0][0], choices=STATUS)
 
     def __str__(self):
