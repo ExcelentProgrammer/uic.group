@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from apps.base.models import Faq, PaymentType
 from apps.base.serializers import FaqSerializer, PaymentTypeSerializer
 from apps.sponsor.models import Sponsor
+from apps.student.models import Student
 
 
 class FaqListApi(ListAPIView):
@@ -16,7 +17,8 @@ class FaqListApi(ListAPIView):
 class DashboardApi(APIView):
 
     def get(self, request):
-        months = []
+        sponsors = []
+        students = []
 
         for m in range(1, 13):
             month = Sponsor.objects.filter(created_at__month=m)
@@ -24,11 +26,25 @@ class DashboardApi(APIView):
                 continue
 
             name = month.first().created_at.strftime("%B")
-            months.append({
+            sponsors.append({
                 "Label": name,
                 "value": month.count()
             })
-        return Response(months)
+
+        for m in range(1, 13):
+            month = Student.objects.filter(created_at__month=m)
+            if month.count() == 0:
+                continue
+
+            name = month.first().created_at.strftime("%B")
+            students.append({
+                "Label": name,
+                "value": month.count()
+            })
+        return Response({
+            "sponsors": sponsors,
+            "students": students
+        })
 
 
 class PaymentTypeApi(ListAPIView):

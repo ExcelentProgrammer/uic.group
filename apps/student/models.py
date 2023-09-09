@@ -22,9 +22,10 @@ class Student(models.Model):
     type = models.IntegerField(choices=TYPE)
     phone = models.CharField(max_length=255)
     institute = models.ForeignKey(Institute, on_delete=models.CASCADE)
-    contract = models.BigIntegerField(null=True,blank=True)
-    given = models.BigIntegerField(null=True,blank=True)
+    contract = models.BigIntegerField(null=True, blank=True)
+    given = models.BigIntegerField(null=True, blank=True)
     get_status_display = models.IntegerField(default=STATUS[0][0], choices=STATUS)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.full_name
