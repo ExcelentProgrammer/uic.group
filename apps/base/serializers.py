@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from apps.base.models import Faq, Dashboard, PaymentType
+from apps.base.models import Faq, PaymentType
 
 
 class FaqSerializer(serializers.ModelSerializer):
@@ -13,14 +13,7 @@ class FaqSerializer(serializers.ModelSerializer):
         ]
 
 
-class DashboardSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Dashboard
-        fields = [
-            "total_income",
-            "need",
-            "other",
-        ]
+
 
 
 class PaymentTypeSerializer(serializers.ModelSerializer):

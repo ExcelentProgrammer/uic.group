@@ -24,7 +24,7 @@ class Student(models.Model):
     institute = models.ForeignKey(Institute, on_delete=models.CASCADE)
     contract = models.BigIntegerField(null=True,blank=True)
     given = models.BigIntegerField(null=True,blank=True)
-    get_status_display = models.IntegerField(blank=True, null=True, default=STATUS[0][0], choices=STATUS)
+    get_status_display = models.IntegerField(default=STATUS[0][0], choices=STATUS)
 
     def __str__(self):
         return self.full_name

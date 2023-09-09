@@ -1,10 +1,9 @@
-from django.db.models import Count, F, Value
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from apps.base.models import Faq, Dashboard, PaymentType
-from apps.base.serializers import FaqSerializer, DashboardSerializer, PaymentTypeSerializer
+from apps.base.models import Faq, PaymentType
+from apps.base.serializers import FaqSerializer, PaymentTypeSerializer
 from apps.sponsor.models import Sponsor
 
 

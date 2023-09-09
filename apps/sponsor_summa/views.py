@@ -23,6 +23,10 @@ class SponsorSummaApi(CreateAPIView):
         student = data.get("student")
         sponsor = data.get("sponsor")
 
+        if int(sponsor.get_status_display) != 3:
+            return Response(
+                {"success": False, "message": "Sponsor Tasdiqlanmagan", "code": 1003,
+                 "status": sponsor.get_status_display})
 
         summa = int(data.get("summa"))
         sponsor_summa = SponsorSumma.objects.filter(student=student).aggregate(total_amount=Sum('summa')).get(
