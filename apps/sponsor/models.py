@@ -5,6 +5,8 @@ from apps.student.models import Student
 
 
 class Sponsor(models.Model):
+
+
     full_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)
     sum = models.BigIntegerField()

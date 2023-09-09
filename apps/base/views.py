@@ -1,9 +1,11 @@
+from django.db.models import Count, F, Value
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.base.models import Faq, Dashboard, PaymentType
 from apps.base.serializers import FaqSerializer, DashboardSerializer, PaymentTypeSerializer
+from apps.sponsor.models import Sponsor
 
 
 class FaqListApi(ListAPIView):
@@ -15,13 +17,19 @@ class FaqListApi(ListAPIView):
 class DashboardApi(APIView):
 
     def get(self, request):
-        data = Dashboard.objects.all().order_by("id").reverse()
+        months = []
 
-        if data.exists():
-            response = DashboardSerializer(data.first())
-            return Response(response.data)
+        for m in range(1, 13):
+            month = Sponsor.objects.filter(created_at__month=m)
+            if month.count() == 0:
+                continue
 
-        return Response({"success": False, "message": "dashboard.data.not.found"})
+            name = month.first().created_at.strftime("%B")
+            months.append({
+                "Label": name,
+                "value": month.count()
+            })
+        return Response(months)
 
 
 class PaymentTypeApi(ListAPIView):

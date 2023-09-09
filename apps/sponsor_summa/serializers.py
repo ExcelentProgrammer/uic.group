@@ -17,3 +17,13 @@ class SponsorSummaSerializer(serializers.ModelSerializer):
             "summa",
             "student",
         ]
+class SponsorSummaCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = SponsorSumma
+        fields = [
+            "id",
+            "sponsor",
+            "summa",
+            "student",
+        ]
