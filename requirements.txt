@@ -16,3 +16,4 @@ tzdata==2023.3
 gunicorn
 drf-yasg
 django-filter
+django-silk
