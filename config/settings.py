@@ -25,12 +25,12 @@ INSTALLED_APPS = [
     "django_filters",
 
     # my apps
-    "apps.accounts",
-    "apps.base",
-    "apps.institute",
-    "apps.sponsor",
-    "apps.student",
-    "apps.sponsor_summa",
+    "apps.accounts.apps.AuthConfig",
+    "apps.base.apps.BaseConfig",
+    "apps.institute.apps.InstituteConfig",
+    "apps.sponsor.apps.SponsorConfig",
+    "apps.student.apps.StudentConfig",
+    "apps.sponsor_summa.apps.SponsorSummaConfig",
 ]
 
 MIDDLEWARE = [
