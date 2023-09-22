@@ -6,7 +6,8 @@ from apps.base.models import Faq, PaymentType
 from apps.base.serializers import FaqSerializer, PaymentTypeSerializer
 from apps.sponsor.models import Sponsor
 from apps.student.models import Student
-
+from django.utils.translation import gettext as _
+from django.utils import translation
 
 class FaqListApi(ListAPIView):
     model = Faq
