@@ -1,6 +1,7 @@
 from django.db import models
 
 from apps.institute.models import Institute
+from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
@@ -29,3 +30,7 @@ class Student(models.Model):
 
     def __str__(self):
         return self.full_name
+
+    class Meta:
+        verbose_name = _("Student")
+        verbose_name_plural = _("Student")

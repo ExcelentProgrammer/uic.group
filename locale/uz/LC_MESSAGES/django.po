@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-11 11:07+0500\n"
+"POT-Creation-Date: 2023-09-22 11:36+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,21 +18,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\apps\base\views.py:23
-msgid "salom qalaysan"
-msgstr "Salom qalaysan uz"
+#: .\apps\base\models.py:11 .\apps\base\models.py:12
+msgid "Faq"
+msgstr "Yordam"
+
+#: .\apps\base\models.py:22 .\apps\base\models.py:23
+msgid "Payment type"
+msgstr "To'lov turi"
+
+#: .\apps\institute\models.py:13 .\apps\institute\models.py:14
+msgid "Institute"
+msgstr ""
+
+#: .\apps\sponsor\models.py:31 .\apps\sponsor\models.py:32
+msgid "Sponsor"
+msgstr "Xomiy"
+
+#: .\apps\sponsor\models.py:39 .\apps\sponsor\models.py:40
+msgid "Sponsor tariff"
+msgstr "Xomiy tariff"
+
+#: .\apps\sponsor_summa\models.py:17 .\apps\sponsor_summa\models.py:18
+msgid "Sponsor summa"
+msgstr "Xomiy summa"
+
+#: .\apps\student\models.py:35 .\apps\student\models.py:36
+msgid "Student"
+msgstr "Talaba"
+
+#: .\config\settings.py:114
+msgid "Uzbek"
+msgstr "O'zbek"
+
+#: .\config\settings.py:115
+msgid "English"
+msgstr "Ingliz"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:15
 msgid "Messages"
-msgstr ""
+msgstr "Xabarlar"
 
 #: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
 msgid "Site Maps"
-msgstr ""
+msgstr "Sayt xaritasi"
 
 #: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
 msgid "Static Files"
-msgstr ""
+msgstr "Static fayillar"
 
 #: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
 msgid "Syndication"
@@ -1228,3 +1260,6 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "salom qalaysan"
+#~ msgstr "Salom qalaysan uz"

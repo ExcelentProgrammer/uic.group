@@ -1,6 +1,6 @@
 from pathlib import Path
 from utils.env import env
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str("SECRET_KEY")
@@ -110,7 +110,10 @@ USE_TZ = True
 LOCALE_PATHS = [
     BASE_DIR.joinpath("locale")
 ]
-
+LANGUAGES = (
+    ("uz", _("Uzbek")),
+    ("en", _("English")),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -149,3 +152,8 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 SILKY_PYTHON_PROFILER = True
+
+# jazzmin settings
+JAZZMIN_SETTINGS = {
+    "language_chooser": True,
+}

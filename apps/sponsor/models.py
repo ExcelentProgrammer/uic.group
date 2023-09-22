@@ -2,6 +2,7 @@ from django.db import models
 
 from apps.base.models import PaymentType
 from apps.student.models import Student
+from django.utils.translation import gettext_lazy as _
 
 
 class Sponsor(models.Model):
@@ -26,6 +27,14 @@ class Sponsor(models.Model):
     def __str__(self):
         return self.full_name
 
+    class Meta:
+        verbose_name = _("Sponsor")
+        verbose_name_plural = _("Sponsor")
+
 
 class SponsorTariff(models.Model):
     summa = models.BigIntegerField()
+
+    class Meta:
+        verbose_name = _("Sponsor tariff")
+        verbose_name_plural = _("Sponsor tariff")

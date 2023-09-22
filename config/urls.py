@@ -24,6 +24,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("i18n/", include("django.conf.urls.i18n")),
     path("", include("apps.base.urls")),
     path("", include("apps.institute.urls")),
     path("", include("apps.sponsor.urls")),
@@ -38,4 +39,3 @@ urlpatterns = [
     re_path(r"media/(.*)", serve, {"document_root": settings.MEDIA_ROOT}),
     re_path(r"static/(.*)", serve, {"document_root": settings.STATIC_ROOT}),
 ]
-
