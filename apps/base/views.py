@@ -9,10 +9,11 @@ from apps.student.models import Student
 from django.utils.translation import gettext as _
 from django.utils import translation
 
+
 class FaqListApi(ListAPIView):
     model = Faq
     serializer_class = FaqSerializer
-    queryset = Faq.objects.all()
+    queryset = Faq.objects.order_by("id")
 
 
 class DashboardApi(APIView):
@@ -51,4 +52,4 @@ class DashboardApi(APIView):
 class PaymentTypeApi(ListAPIView):
     model = PaymentType
     serializer_class = PaymentTypeSerializer
-    queryset = PaymentType.objects.all()
+    queryset = PaymentType.objects.order_by("id")
