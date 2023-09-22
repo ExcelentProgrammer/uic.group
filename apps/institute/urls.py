@@ -5,5 +5,5 @@ from apps.institute.views import InstituteListApi
 app_name = "institute"
 
 urlpatterns = [
-    path("institute-list/",InstituteListApi.as_view(),name="name")
+    path("institute-list/", InstituteListApi.as_view(), name="name")
 ]
