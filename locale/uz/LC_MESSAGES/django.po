@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 13:41+0500\n"
+"POT-Creation-Date: 2023-09-22 23:29+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,17 +22,72 @@ msgstr ""
 msgid "User"
 msgstr "Foydalanuvch"
 
+#: .\apps\base\models.py:7
+msgid "question"
+msgstr "Savol"
+
+#: .\apps\base\models.py:8
+msgid "answer"
+msgstr "Javob"
+
 #: .\apps\base\models.py:11 .\apps\base\models.py:12
 msgid "Faq"
 msgstr "Yordam"
+
+#: .\apps\base\models.py:16
+msgid "title"
+msgstr "Sarlavha"
 
 #: .\apps\base\models.py:22 .\apps\base\models.py:23
 msgid "Payment type"
 msgstr "To'lov turi"
 
+#: .\apps\institute\models.py:7
+msgid "name"
+msgstr "Nom"
+
 #: .\apps\institute\models.py:13 .\apps\institute\models.py:14
 msgid "Institute"
+msgstr "Institute"
+
+#: .\apps\sponsor\models.py:16 .\apps\student\models.py:22
+msgid "full name"
+msgstr "FIO"
+
+#: .\apps\sponsor\models.py:17 .\apps\student\models.py:24
+msgid "phone"
+msgstr "Telefon nomer"
+
+#: .\apps\sponsor\models.py:18 .\apps\sponsor\models.py:36
+#: .\apps\sponsor_summa\models.py:11
+msgid "summa"
 msgstr ""
+
+#: .\apps\sponsor\models.py:19
+#, fuzzy
+#| msgid "Payment type"
+msgid "payment type"
+msgstr "To'lov turi"
+
+#: .\apps\sponsor\models.py:20
+msgid "Firma"
+msgstr ""
+
+#: .\apps\sponsor\models.py:21
+msgid "is legal"
+msgstr "Tasdiqlangan"
+
+#: .\apps\sponsor\models.py:22
+msgid "spent"
+msgstr ""
+
+#: .\apps\sponsor\models.py:24 .\apps\student\models.py:28
+msgid "display status"
+msgstr ""
+
+#: .\apps\sponsor\models.py:25
+msgid "comment"
+msgstr "Izoh"
 
 #: .\apps\sponsor\models.py:31 .\apps\sponsor\models.py:32
 msgid "Sponsor"
@@ -42,19 +97,47 @@ msgstr "Xomiy"
 msgid "Sponsor tariff"
 msgstr "Xomiy tariff"
 
-#: .\apps\sponsor_summa\models.py:17 .\apps\sponsor_summa\models.py:18
+#: .\apps\sponsor_summa\models.py:10
+#, fuzzy
+#| msgid "Sponsor"
+msgid "sponsor"
+msgstr "Xomiy"
+
+#: .\apps\sponsor_summa\models.py:12
+#, fuzzy
+#| msgid "Student"
+msgid "student"
+msgstr "Talaba"
+
+#: .\apps\sponsor_summa\models.py:18 .\apps\sponsor_summa\models.py:19
 msgid "Sponsor summa"
 msgstr "Xomiy summa"
+
+#: .\apps\student\models.py:23
+msgid "type"
+msgstr "Turi"
+
+#: .\apps\student\models.py:25
+msgid "institute"
+msgstr ""
+
+#: .\apps\student\models.py:26
+msgid "contract"
+msgstr ""
+
+#: .\apps\student\models.py:27
+msgid "given"
+msgstr "Sovg'a"
 
 #: .\apps\student\models.py:35 .\apps\student\models.py:36
 msgid "Student"
 msgstr "Talaba"
 
-#: .\config\settings.py:114
+#: .\config\settings.py:118
 msgid "Uzbek"
 msgstr "O'zbek"
 
-#: .\config\settings.py:115
+#: .\config\settings.py:119
 msgid "English"
 msgstr "Ingliz"
 

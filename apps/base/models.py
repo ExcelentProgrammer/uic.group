@@ -4,8 +4,8 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Faq(models.Model):
-    question = models.CharField(max_length=255)
-    answer = models.TextField()
+    question = models.CharField(max_length=255, verbose_name=_("question"))
+    answer = models.TextField(verbose_name=_("answer"))
 
     class Meta:
         verbose_name = _("Faq")
@@ -13,7 +13,7 @@ class Faq(models.Model):
 
 
 class PaymentType(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255,verbose_name=_("title"))
 
     def __str__(self):
         return self.title

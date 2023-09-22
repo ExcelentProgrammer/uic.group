@@ -167,7 +167,7 @@ JAZZMIN_SETTINGS = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'caches',  # Kesh uchun tanlagan nom
+        'LOCATION': 'caches',
         "TIMEOUT": 60 * 2
     }
 }

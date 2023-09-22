@@ -19,13 +19,13 @@ class Student(models.Model):
         (4, "Bekor qilingan"),
     )
 
-    full_name = models.CharField(max_length=255)
-    type = models.IntegerField(choices=TYPE)
-    phone = models.CharField(max_length=255)
-    institute = models.ForeignKey(Institute, on_delete=models.CASCADE)
-    contract = models.BigIntegerField(null=True, blank=True)
-    given = models.BigIntegerField(null=True, blank=True)
-    get_status_display = models.IntegerField(default=STATUS[0][0], choices=STATUS)
+    full_name = models.CharField(max_length=255, verbose_name=_("full name"))
+    type = models.IntegerField(choices=TYPE, verbose_name=_("type"))
+    phone = models.CharField(max_length=255, verbose_name=_("phone"))
+    institute = models.ForeignKey(Institute, on_delete=models.CASCADE, verbose_name=_("institute"))
+    contract = models.BigIntegerField(null=True, blank=True, verbose_name=_("contract"))
+    given = models.BigIntegerField(null=True, blank=True, verbose_name=_("given"))
+    get_status_display = models.IntegerField(default=STATUS[0][0], choices=STATUS, verbose_name=_("display status"))
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
