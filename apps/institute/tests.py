@@ -20,3 +20,4 @@ class Test(APITestCase):
         self.assertIn("next", data)
         self.assertIn("results", data)
         self.assertIn("previous", data)
+        self.assertEqual(len(data['results']), 1)
