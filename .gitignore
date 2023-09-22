@@ -3,3 +3,4 @@ venv
 **/*.pyc
 media/**/*
 .idea
+db.sqlite3
