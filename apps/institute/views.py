@@ -9,5 +9,5 @@ from apps.institute.serializers import InstituteSerializer
 class InstituteListApi(ListAPIView):
     model = Institute
     serializer_class = InstituteSerializer
-    queryset = Institute.objects.all()
+    queryset = Institute.objects.order_by("id")
     filterset_fields = ["name"]
