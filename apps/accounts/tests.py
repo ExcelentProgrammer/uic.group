@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from rest_framework import status
 
-from .models import User
+from apps.accounts.models import User
 
 
 class Test(TestCase):

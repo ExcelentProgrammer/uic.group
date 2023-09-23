@@ -8,13 +8,13 @@ from apps.sponsor.serializers import SponsorCreateSerializer, SponsorDetailSeria
 
 # Create your views here.
 class SponsorCreateApi(CreateAPIView):
-    queryset = Sponsor.objects.all()
+    queryset = Sponsor.objects.order_by("id")
     serializer_class = SponsorCreateSerializer
 
 
 class SponsorDeleteApi(DestroyAPIView):
     lookup_url_kwarg = 'id'
-    queryset = Sponsor.objects.all()
+    queryset = Sponsor.objects.order_by("id")
 
 
 class SponsorDetailApi(RetrieveAPIView):
@@ -24,19 +24,19 @@ class SponsorDetailApi(RetrieveAPIView):
 
 
 class SponsorListApi(ListAPIView):
-    queryset = Sponsor.objects.all()
+    queryset = Sponsor.objects.order_by("id")
     serializer_class = SponsorListSerializer
     filter_backends = [OrderingFilter]
     ordering_fields = "__all__"
 
 
 class SponsorUpdateApi(UpdateAPIView):
-    queryset = Sponsor.objects.all()
+    queryset = Sponsor.objects.order_by("id")
     serializer_class = SponsorCreateSerializer
     lookup_url_kwarg = "id"
 
 
 class SponsorTariffApi(ListAPIView):
-    queryset = SponsorTariff.objects.all()
+    queryset = SponsorTariff.objects.order_by("id")
     serializer_class = SponsorTariffSerializer
 

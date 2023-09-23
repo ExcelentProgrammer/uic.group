@@ -12,3 +12,4 @@ class Institute(models.Model):
     class Meta:
         verbose_name = _("Institute")
         verbose_name_plural = _("Institute")
+     
