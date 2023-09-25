@@ -10,12 +10,15 @@ from apps.student.models import Student
 
 
 class FaqListApi(ListAPIView):
+    """FAQ Api List View"""
+
     model = Faq
     serializer_class = FaqSerializer
     queryset = Faq.objects.order_by("id")
 
 
 class DashboardApi(APIView):
+    """Dashboard Api View"""
 
     def get(self, request):
         res = Sponsor.objects.annotate(created_at=Count("created_at"))
