@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Sponsor(models.Model):
+    """Sponsor model"""
+
     STATUS = (
         (1, "Yangi"),
         (2, "Modernarsiyada"),
@@ -33,6 +35,8 @@ class Sponsor(models.Model):
 
 
 class SponsorTariff(models.Model):
+    """Sponsor Tariff Model"""
+
     summa = models.BigIntegerField(verbose_name=_("summa"))
 
     class Meta:

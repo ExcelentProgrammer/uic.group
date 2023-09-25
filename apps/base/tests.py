@@ -4,8 +4,8 @@ from rest_framework import status
 from rest_framework.test import APIClient, APITestCase
 
 
-# Create your tests here.
 class Test(APITestCase):
+    """Base app tests"""
 
     def setUp(self) -> None:
         self._faq_url = reverse("faq")
@@ -14,13 +14,19 @@ class Test(APITestCase):
         self.client = APIClient()
 
     def test_faq(self):
+        """FAQ api endpoint test"""
+
         response = self.client.get(self._faq_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_dashboard(self):
+        """Dashboard api endpoint test"""
+
         response = self.client.get(self._dashboard_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_payment(self):
+        """Payment api endpoint test"""
+
         response = self.client.get(self._payment_type_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)

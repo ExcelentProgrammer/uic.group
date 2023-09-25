@@ -10,6 +10,7 @@ from django.urls import reverse
 
 
 class Test(APITestCase):
+    """Sponsor Summa App Tests"""
 
     def setUp(self) -> None:
         self._client = APIClient()

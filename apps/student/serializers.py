@@ -6,7 +6,6 @@ from apps.student.models import Student
 
 
 class StudentSerializer(serializers.ModelSerializer):
-
     """Student Serializer"""
 
     institute = InstituteSerializer(read_only=True)

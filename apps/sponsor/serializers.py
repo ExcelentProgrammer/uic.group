@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from apps.base.models import PaymentType
 from apps.base.serializers import PaymentTypeSerializer
 from apps.sponsor.models import Sponsor, SponsorTariff

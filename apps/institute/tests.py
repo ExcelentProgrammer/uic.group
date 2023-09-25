@@ -6,6 +6,7 @@ from apps.institute.models import Institute
 
 
 class Test(APITestCase):
+    """Institute app tests"""
 
     def setUp(self) -> None:
         self.client = APIClient()
@@ -13,6 +14,8 @@ class Test(APITestCase):
         self.institute = Institute.objects.create(name="test_name")
 
     def test_institute_list(self):
+        """institute list api endpoint test"""
+
         response = self.client.get(self._list_url)
         data = response.json()
         self.assertEqual(response.status_code, status.HTTP_200_OK)
