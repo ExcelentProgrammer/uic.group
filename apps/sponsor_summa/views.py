@@ -1,17 +1,14 @@
 from django.db.models import Sum
-from django.shortcuts import render
-from rest_framework.response import Response
 from rest_framework.generics import CreateAPIView, DestroyAPIView, ListAPIView, UpdateAPIView
+from rest_framework.response import Response
 
-from apps.sponsor.models import Sponsor
 from apps.sponsor_summa.models import SponsorSumma
 from apps.sponsor_summa.serializers import SponsorSummaSerializer, SponsorSummaCreateSerializer
-from apps.student.models import Student
 
 
 # Create your views here.
 class SponsorSummaApi(CreateAPIView):
-    queryset = SponsorSumma.objects.all()
+    queryset = SponsorSumma.objects.order_by("id")
     serializer_class = SponsorSummaCreateSerializer
 
     def create(self, request, *args, **kwargs):
@@ -50,17 +47,17 @@ class SponsorSummaApi(CreateAPIView):
 
 
 class SponsorSummaDeleteApi(DestroyAPIView):
-    queryset = SponsorSumma.objects.all()
+    queryset = SponsorSumma.objects.order_by("id")
     lookup_url_kwarg = "id"
 
 
 class SponsorSummaListApi(ListAPIView):
-    queryset = SponsorSumma.objects.all()
+    queryset = SponsorSumma.objects.order_by("id")
     serializer_class = SponsorSummaSerializer
     filterset_fields = ["sponsor"]
 
 
 class SponsorSummaUpdateApi(UpdateAPIView):
-    queryset = SponsorSumma.objects.all()
+    queryset = SponsorSumma.objects.order_by("id")
     serializer_class = SponsorSummaSerializer
     lookup_url_kwarg = "id"

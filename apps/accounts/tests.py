@@ -14,14 +14,22 @@ class Test(TestCase):
 
         self.user = User.objects.create_user(username="test_user", password="test_password")
 
-    def test_login(self):
+    def test_jwt(self):
         payload = {
             "username": "test_user",
             'password': "test_password"
         }
         response = self.client.post(self._login_path, data=payload)
         data = response.json()
+        self._refresh = data.get("refresh")
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn("access", data)
         self.assertIn("refresh", data)
+
+        payload = {
+            "refresh": self._refresh
+        }
+        response = self.client.post(self._refresh_path, data=payload)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("access", response.json())
