@@ -162,8 +162,8 @@ JAZZMIN_SETTINGS = {
     "language_chooser": True,
 }
 
-# cache settings
 
+"""Cache Settings"""
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
@@ -171,3 +171,4 @@ CACHES = {
         "TIMEOUT": 60 * 2
     }
 }
+"""End Cache Settings"""

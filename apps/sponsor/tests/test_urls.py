@@ -1,5 +1,5 @@
 from django.test import SimpleTestCase, Client
-from django.urls import resolve,reverse
+from django.urls import resolve, reverse
 from apps.sponsor.views import SponsorListApi
 
 
@@ -9,5 +9,7 @@ class Test(SimpleTestCase):
         pass
 
     def test_urls(self):
+        """sponsor list api endpoint test"""
+
         url = reverse("sponsor-list")
         self.assertEqual(resolve(url).func.view_class, SponsorListApi)

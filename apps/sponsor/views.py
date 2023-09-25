@@ -2,14 +2,13 @@ from rest_framework.filters import OrderingFilter
 from rest_framework.generics import CreateAPIView, DestroyAPIView, RetrieveAPIView, ListAPIView, UpdateAPIView
 
 from apps.sponsor.models import Sponsor, SponsorTariff
-from apps.sponsor.serializers import SponsorCreateSerializer, SponsorDetailSerializer, SponsorListSerializer, \
-    SponsorTariffSerializer
+from apps.sponsor.serializers import SponsorSerializer, SponsorTariffSerializer
 
 
 # Create your views here.
 class SponsorCreateApi(CreateAPIView):
     queryset = Sponsor.objects.order_by("id")
-    serializer_class = SponsorCreateSerializer
+    serializer_class = SponsorSerializer
 
 
 class SponsorDeleteApi(DestroyAPIView):
@@ -20,23 +19,22 @@ class SponsorDeleteApi(DestroyAPIView):
 class SponsorDetailApi(RetrieveAPIView):
     lookup_url_kwarg = "id"
     queryset = Sponsor
-    serializer_class = SponsorDetailSerializer
+    serializer_class = SponsorSerializer
 
 
 class SponsorListApi(ListAPIView):
     queryset = Sponsor.objects.order_by("id")
-    serializer_class = SponsorListSerializer
+    serializer_class = SponsorSerializer
     filter_backends = [OrderingFilter]
     ordering_fields = "__all__"
 
 
 class SponsorUpdateApi(UpdateAPIView):
     queryset = Sponsor.objects.order_by("id")
-    serializer_class = SponsorCreateSerializer
+    serializer_class = SponsorSerializer
     lookup_url_kwarg = "id"
 
 
 class SponsorTariffApi(ListAPIView):
     queryset = SponsorTariff.objects.order_by("id")
     serializer_class = SponsorTariffSerializer
-

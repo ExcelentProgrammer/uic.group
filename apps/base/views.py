@@ -19,37 +19,33 @@ class FaqListApi(ListAPIView):
 class DashboardApi(APIView):
 
     def get(self, request):
-        sponsors = []
-        students = []
+        sponsors = self.get_monthly_data(Sponsor)
+        students = self.get_monthly_data(Student)
 
-        for m in range(1, 13):
-            month = Sponsor.objects.filter(created_at__month=m)
-            if month.count() == 0:
-                continue
-
-            name = month.first().created_at.strftime("%B")
-            sponsors.append({
-                "Label": name,
-                "value": month.count()
-            })
-
-        for m in range(1, 13):
-            month = Student.objects.filter(created_at__month=m)
-            if month.count() == 0:
-                continue
-
-            name = month.first().created_at.strftime("%B")
-            students.append({
-                "Label": name,
-                "value": month.count()
-            })
         return Response({
             "sponsors": sponsors,
             "students": students
         })
 
+    def get_monthly_data(self, model):
+        """Yillik statistikani olish uchun funcsiya"""
+
+        monthly_data = []
+
+        for month in range(1, 13):
+            records = model.objects.filter(created_at__month=month)
+            if records.count() > 0:
+                name = records.first().created_at.strftime("%B")
+                monthly_data.append({
+                    "Label": name,
+                    "value": records.count()
+                })
+
+        return monthly_data
+
 
 class PaymentTypeApi(ListAPIView):
+    """To'lov turlarini ro'yhatini olish uchun List View"""
     model = PaymentType
     serializer_class = PaymentTypeSerializer
     queryset = PaymentType.objects.order_by("id")

@@ -2,12 +2,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import CreateAPIView, DestroyAPIView, ListAPIView, UpdateAPIView, RetrieveAPIView
 
 from apps.student.models import Student
-from apps.student.serializers import StudentSerializer, StudentCreateSerializer, StudentSponsorSerializer
+from apps.student.serializers import StudentSerializer, StudentSponsorSerializer
 
 
 class StudentApi(CreateAPIView):
     queryset = Student.objects.order_by("id")
-    serializer_class = StudentCreateSerializer
+    serializer_class = StudentSerializer
 
 
 class StudentDeleteApi(DestroyAPIView):
@@ -27,10 +27,9 @@ class StudentListApi(ListAPIView):
     filterset_fields = ["get_status_display"]
 
 
-
 class StudentUpdateApi(UpdateAPIView):
     queryset = Student.objects.order_by("id")
-    serializer_class = StudentCreateSerializer
+    serializer_class = StudentSerializer
     lookup_url_kwarg = "id"
 
 

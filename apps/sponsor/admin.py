@@ -7,17 +7,13 @@ from apps.sponsor.models import Sponsor, SponsorTariff
 # Register your models here.
 class SponsorAdmin(ModelAdmin):
     list_display = [
-        "full_name",
-        "phone",
-        "sum",
-        "firm",
+        "full_name", "phone",
+        "sum", "firm",
         "created_at"
     ]
     search_fields = [
-        "full_name",
-        "phone",
-        "sum",
-        "firm",
+        "full_name", "phone",
+        "sum", "firm",
         "created_at"
     ]
 

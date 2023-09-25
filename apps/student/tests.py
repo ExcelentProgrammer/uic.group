@@ -1,6 +1,7 @@
 from django.test import TestCase
-from rest_framework.test import APITestCase,APIClient
+from rest_framework.test import APITestCase, APIClient
 from django.urls import reverse
+
 
 # Create your tests here.
 class Test(APITestCase):
@@ -10,5 +11,7 @@ class Test(APITestCase):
         self.client = APIClient()
 
     def test_list(self):
+        """Student list endpoint test"""
+
         response = self.client.get(self._list_url)
-        self.assertEqual(response.status_code,200)
+        self.assertEqual(response.status_code, 200)

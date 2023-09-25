@@ -3,7 +3,7 @@ from rest_framework.test import APIClient, APITestCase
 from apps.sponsor_summa.models import SponsorSumma
 from apps.student.models import Student
 from apps.institute.models import Institute
-from apps.sponsor.models import PaymentType,Sponsor
+from apps.sponsor.models import PaymentType, Sponsor
 from faker import Faker
 from rest_framework import status
 from django.urls import reverse
@@ -37,13 +37,12 @@ class Test(APITestCase):
             institute=self._institute,
             contract=10000000,
         )
-
         self._sponsor.payment_type.add(self._payment_type)
-
-        self._sponsor_summa = SponsorSumma.objects.create(sponsor=self._sponsor,summa=10000000,student=self._student)
-
+        self._sponsor_summa = SponsorSumma.objects.create(sponsor=self._sponsor, summa=10000000, student=self._student)
         self._list_url = reverse("sponsor-summa:list")
 
     def test_list(self):
+        """Sponsor summa uchun test"""
+
         response = self.client.get(self._list_url)
-        self.assertEqual(response.status_code,status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)

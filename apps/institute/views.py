@@ -8,8 +8,9 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 
 
-# Create your views here.
 class InstituteListApi(ListAPIView):
+    """Institute List View"""
+
     model = Institute
     serializer_class = InstituteSerializer
     queryset = Institute.objects.order_by("id")
@@ -17,4 +18,6 @@ class InstituteListApi(ListAPIView):
 
     @method_decorator(cache_page(60 * 1))
     def dispatch(self, request, *args, **kwargs):
+        """Cache vaqtini kamaytirish uchun 1 daqiqa"""
+
         return super().dispatch(request, *args, **kwargs)
