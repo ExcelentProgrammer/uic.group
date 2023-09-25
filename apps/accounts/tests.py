@@ -15,6 +15,8 @@ class Test(TestCase):
         self.user = User.objects.create_user(username="test_user", password="test_password")
 
     def test_jwt(self):
+        """Jwt auth test login and refresh token"""
+
         payload = {
             "username": "test_user",
             'password': "test_password"

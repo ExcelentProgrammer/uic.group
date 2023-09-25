@@ -1,3 +1,4 @@
+from django.db.models import Count
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -6,8 +7,6 @@ from apps.base.models import Faq, PaymentType
 from apps.base.serializers import FaqSerializer, PaymentTypeSerializer
 from apps.sponsor.models import Sponsor
 from apps.student.models import Student
-from django.utils.translation import gettext as _
-from django.utils import translation
 
 
 class FaqListApi(ListAPIView):
@@ -19,6 +18,9 @@ class FaqListApi(ListAPIView):
 class DashboardApi(APIView):
 
     def get(self, request):
+        res = Sponsor.objects.annotate(created_at=Count("created_at"))
+        print(res)
+
         sponsors = self.get_monthly_data(Sponsor)
         students = self.get_monthly_data(Student)
 
@@ -40,12 +42,12 @@ class DashboardApi(APIView):
                     "Label": name,
                     "value": records.count()
                 })
-
         return monthly_data
 
 
 class PaymentTypeApi(ListAPIView):
     """To'lov turlarini ro'yhatini olish uchun List View"""
+
     model = PaymentType
     serializer_class = PaymentTypeSerializer
     queryset = PaymentType.objects.order_by("id")
