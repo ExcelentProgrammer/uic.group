@@ -40,7 +40,7 @@ class Test(APITestCase):
         )
         self._sponsor.payment_type.add(self._payment_type)
         self._sponsor_summa = SponsorSumma.objects.create(sponsor=self._sponsor, summa=10000000, student=self._student)
-        self._list_url = reverse("sponsor-summa:list")
+        self._list_url = reverse("sponsor-summa-list")
 
     def test_list(self):
         """Sponsor summa uchun test"""

@@ -25,7 +25,7 @@ class Test(TestCase):
         )
         self._sponsor.payment_type.add(self._payment_type)
 
-        self._detail_url = reverse("detail", kwargs={"id": self._sponsor.id})
+        self._detail_url = reverse("sponsor-detail", kwargs={"pk": self._sponsor.id})
 
     def test_sponsor_list(self):
         """sponsor list api endpoint test"""

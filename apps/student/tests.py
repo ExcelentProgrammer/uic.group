@@ -7,7 +7,7 @@ from django.urls import reverse
 class Test(APITestCase):
 
     def setUp(self) -> None:
-        self._list_url = reverse("student:list")
+        self._list_url = reverse("student-list")
         self.client = APIClient()
 
     def test_list(self):
