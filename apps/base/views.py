@@ -21,8 +21,6 @@ class DashboardApi(APIView):
     """Dashboard Api View"""
 
     def get(self, request):
-        res = Sponsor.objects.annotate(created_at=Count("created_at"))
-        print(res)
 
         sponsors = self.get_monthly_data(Sponsor)
         students = self.get_monthly_data(Student)

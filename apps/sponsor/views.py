@@ -1,47 +1,20 @@
-from rest_framework.filters import OrderingFilter
-from rest_framework.generics import CreateAPIView, DestroyAPIView, RetrieveAPIView, ListAPIView, UpdateAPIView
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter
+from rest_framework.generics import ListAPIView
+from rest_framework.viewsets import ModelViewSet
 
 from apps.sponsor.models import Sponsor, SponsorTariff
 from apps.sponsor.serializers import SponsorSerializer, SponsorTariffSerializer
 
 
-class SponsorCreateApi(CreateAPIView):
-    """Sponsor Create Api View"""
+class SponsorViewSet(ModelViewSet):
+    """Sponsor View Set"""
 
     queryset = Sponsor.objects.order_by("id")
     serializer_class = SponsorSerializer
-
-
-class SponsorDeleteApi(DestroyAPIView):
-    """Sponsor delete Api View"""
-
-    lookup_url_kwarg = 'id'
-    queryset = Sponsor.objects.order_by("id")
-
-
-class SponsorDetailApi(RetrieveAPIView):
-    """Sponsor Detail Api View"""
-
-    lookup_url_kwarg = "id"
-    queryset = Sponsor
-    serializer_class = SponsorSerializer
-
-
-class SponsorListApi(ListAPIView):
-    """Sponsor List Api View"""
-
-    queryset = Sponsor.objects.order_by("id")
-    serializer_class = SponsorSerializer
-    filter_backends = [OrderingFilter]
-    ordering_fields = "__all__"
-
-
-class SponsorUpdateApi(UpdateAPIView):
-    """Sponsor Update Api View"""
-
-    queryset = Sponsor.objects.order_by("id")
-    serializer_class = SponsorSerializer
-    lookup_url_kwarg = "id"
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    search_fields = ['full_name']
+    filterset_fields = ["get_status_display"]
 
 
 class SponsorTariffApi(ListAPIView):
